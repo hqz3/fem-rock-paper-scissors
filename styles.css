@@ -2,17 +2,17 @@
   --mobile-screen: 375px;
   --desktop-screen: 1366px;
   /* Primary */
-  --scissorsg-gradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
-  --paper-gradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
-  --rock-gradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
-  --lizard-gradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
-  --cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+  --scissors-gradient: hsl(39, 89%, 49%), hsl(40, 84%, 53%);
+  --paper-gradient: hsl(230, 89%, 62%), hsl(230, 89%, 65%);
+  --rock-gradient: hsl(349, 71%, 52%), hsl(349, 70%, 56%);
+  --lizard-gradient: hsl(261, 73%, 60%), hsl(261, 72%, 63%);
+  --cyan: hsl(189, 59%, 53%), hsl(189, 58%, 57%);
   /* Neutral */
   --dark-text: hsl(229, 25%, 31%);
   --score-text: hsl(229, 64%, 46%);
   --header-outline: hsl(217, 16%, 45%);
   /* Background */
-  --radial-gradient: hsl(214, 47%, 23%) to hsl(237, 49%, 15%);
+  --radial-gradient: hsl(214, 47%, 23%), hsl(237, 49%, 15%);
   /* Font */
   --primary-font: "Barlow", sans-serif;
   --semi-bold: 600;
@@ -28,9 +28,56 @@
 }
 
 html {
-  font-size: 10px;
   font-family: var(--primary-font);
+  font-size: 10px;
 }
 
 body {
+  background-image: linear-gradient(var(--radial-gradient));
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  max-width: var(--desktop-screen);
+  min-height: 100vh;
+  position: relative;
+}
+
+.header {
+  border-radius: 0.8rem;
+  border: 0.3rem solid var(--header-outline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9.8rem;
+  padding: 0 2.1rem;
+  position: absolute;
+  top: 4.2%;
+  width: 83.5%;
+}
+
+.header__logo {
+  height: 56%;
+}
+
+.header__score {
+  align-items: center;
+  background-color: #ddd;
+  border-radius: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  height: 7.15rem;
+  justify-content: center;
+  width: 8.15rem;
+}
+
+.header__score-title {
+  color: var(--score-text);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.header__score-points {
+  color: var(--dark-text);
+  font-size: 4rem;
 }
