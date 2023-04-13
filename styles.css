@@ -30,6 +30,7 @@
 html {
   font-family: var(--primary-font);
   font-size: 10px;
+  letter-spacing: 0.1rem;
 }
 
 body {
@@ -39,28 +40,38 @@ body {
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 16rem 40rem;
-  justify-items: center;
-  max-width: var(--desktop-screen);
+  grid-template-rows: 16rem 1fr;
+
   height: 100vh;
+  width: 100vw;
 
   position: relative;
 }
 
+.pointer {
+  cursor: pointer;
+}
+
+.scale:active {
+  scale: 0.98;
+}
+
 .header {
-  border-radius: 0.8rem;
   border: 0.3rem solid var(--header-outline);
+  border-radius: 0.8rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  padding: 2.1rem;
   justify-self: center;
   align-self: center;
 
   height: 9.9rem;
   width: 83.5%;
   max-width: 70rem;
+
+  padding: 2.1rem;
 }
 
 .header__logo {
@@ -80,7 +91,6 @@ body {
 
 .header__score-title {
   color: var(--score-text);
-  font-size: 1.1rem;
   text-transform: uppercase;
 }
 
@@ -90,64 +100,81 @@ body {
 }
 
 .game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6rem;
+
+  height: 100%;
+  width: 100%;
+}
+
+.game--hide {
+  display: none;
+}
+
+.game__container {
   width: 37.5rem;
+  height: 37.5rem;
   position: relative;
 }
 
 .game__track {
-  width: 21rem;
-
   position: absolute;
-  top: 24%;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
+  width: 50%;
 }
 
 .game__chip {
   border-radius: 50%;
-  cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  min-height: 12.5rem;
-  min-width: 12.5rem;
+  height: 34%;
+  width: 34%;
+
   position: relative;
+  top: 20%;
 }
+
 .game__chip::after {
   content: "";
-  background-color: white;
+  background-color: gainsboro;
   border-radius: 50%;
-  height: 9rem;
-  width: 9rem;
+  height: 75%;
+  width: 75%;
   position: absolute;
 }
 
 .game__chip--paper {
   background-image: linear-gradient(var(--paper-gradient));
   position: absolute;
-  top: 19%;
   left: 9%;
 }
 
 .game__chip--scissors {
   background-image: linear-gradient(var(--scissors-gradient));
   position: absolute;
-  top: 19%;
   right: 9%;
 }
 
 .game__chip--rock {
   background-image: linear-gradient(var(--rock-gradient));
   position: absolute;
-  bottom: 12.5%;
+  top: 60%;
   left: 50%;
   transform: translateX(-50%);
 }
+.game__chip--rock:active {
+  transform: translateX(-50%) scale(0.98);
+}
 
 .game__icon {
-  width: 4rem;
+  width: 35%;
   z-index: 10;
 }
 
@@ -156,46 +183,41 @@ body {
   border-radius: 0.7rem;
   border: 1px solid var(--header-outline);
   color: #ddd;
-  cursor: pointer;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   height: 4rem;
-  letter-spacing: 0.3rem;
-
-  position: absolute;
-  top: 65.5rem;
-  width: 13rem;
-
+  letter-spacing: 0.2rem;
   text-transform: uppercase;
-}
-.rules-button:active {
-  transform: scale(0.98);
+  width: 13rem;
 }
 
 .rules {
   background-color: white;
 
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
   align-items: center;
-  justify-content: space-around;
+  justify-items: center;
+
+  height: 0;
+  width: 100vw;
 
   opacity: 0;
-
   position: fixed;
   top: 0;
   left: 0;
 
+  transition-property: height, opacity;
+  transition-duration: 0.5s;
   z-index: -10;
 }
 
 .rules--show {
   height: 100vh;
-  width: 100vw;
   opacity: 1;
   z-index: 20;
 }
@@ -206,6 +228,52 @@ body {
   text-transform: uppercase;
 }
 
-.rules__close {
-  cursor: pointer;
+.rules__image {
+  max-width: 0;
+  transition-property: max-width;
+  transition-duration: 0.5s;
+}
+
+.rules__image--show {
+  max-width: 100%;
+}
+
+@media (min-width: 769px) {
+  .rules {
+    border-radius: 0.6rem;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 10% 90%;
+
+    top: 17.5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 3rem;
+    row-gap: 2rem;
+    width: 37.5rem;
+  }
+
+  .rules--show {
+    height: 40rem;
+  }
+
+  .rules-button {
+    margin-left: 75%;
+  }
+
+  .rules__title {
+    justify-self: start;
+    grid-column: 1/2;
+  }
+
+  .rules__close {
+    justify-self: end;
+    grid-column: 2/3;
+  }
+
+  .rules__image {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
 }

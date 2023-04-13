@@ -29,38 +29,45 @@
       </div>
     </header>
     <main class="game">
-      <img
-        class="game__track"
-        src="./images/bg-triangle.svg"
-        alt="Game track"
-      />
-      <div class="game__chip game__chip--paper">
+      <div class="game__container">
         <img
-          src="./images/icon-paper.svg"
-          alt=""
-          class="game__icon game__paper-icon"
+          class="game__track"
+          src="./images/bg-triangle.svg"
+          alt="Game track"
         />
+        <div class="game__chip game__chip--paper pointer scale">
+          <img
+            src="./images/icon-paper.svg"
+            alt=""
+            class="game__icon game__paper-icon"
+          />
+        </div>
+        <div class="game__chip game__chip--rock pointer">
+          <img
+            src="./images/icon-rock.svg"
+            alt=""
+            class="game__icon game__rock-icon"
+          />
+        </div>
+        <div class="game__chip game__chip--scissors pointer scale">
+          <img
+            src="./images/icon-scissors.svg"
+            alt=""
+            class="game__icon game__scissors-icon"
+          />
+        </div>
       </div>
-      <div class="game__chip game__chip--rock">
-        <img
-          src="./images/icon-rock.svg"
-          alt=""
-          class="game__icon game__rock-icon"
-        />
-      </div>
-      <div class="game__chip game__chip--scissors">
-        <img
-          src="./images/icon-scissors.svg"
-          alt=""
-          class="game__icon game__scissors-icon"
-        />
-      </div>
+      <button class="rules-button pointer scale">Rules</button>
     </main>
-    <button class="rules-button">Rules</button>
+
     <div class="rules">
       <span class="rules__title">Rules</span>
       <img class="rules__image" src="./images/image-rules.svg" alt="" />
-      <img class="rules__close" src="./images/icon-close.svg" alt="Close" />
+      <img
+        class="rules__close pointer"
+        src="./images/icon-close.svg"
+        alt="Close"
+      />
     </div>
   </body>
   <script src="script.js"></script>
