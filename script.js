@@ -1,11 +1,35 @@
-const rulesButtonEl = document.querySelector(".rules-button");
-const rulesCloseButtonEl = document.querySelector(".rules__close");
-const rulesEl = document.querySelector(".rules");
+class Rules {
+  constructor() {
+    this.element = document.querySelector(".rules");
+    this.image = document.querySelector(".rules__image");
+    this.button = document.querySelector(".rules-button");
+    this.close = document.querySelector(".rules__close");
+  }
 
-rulesButtonEl.addEventListener("click", (e) => {
-  rulesEl.classList.add("rules--show");
+  show() {
+    this.element.classList.add("rules--show");
+    this.image.classList.add("rules__image--show");
+  }
+
+  hide() {
+    this.element.classList.remove("rules--show");
+    this.image.classList.remove("rules__image--show");
+  }
+}
+
+const rules = new Rules();
+
+rules.button.addEventListener("click", (e) => {
+  e.stopPropagation();
+  rules.show();
 });
 
-rulesCloseButtonEl.addEventListener("click", (e) => {
-  rulesEl.classList.remove("rules--show");
+rules.close.addEventListener("click", (e) => {
+  rules.hide();
+});
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest("div")?.classList.contains("rules--show")) {
+    rules.hide();
+  }
 });
