@@ -28,6 +28,7 @@
         <div class="header__score-points">0</div>
       </div>
     </header>
+
     <main class="game">
       <div class="game__container">
         <img
@@ -63,8 +64,23 @@
           />
         </div>
       </div>
-      <button class="rules-button pointer scale">Rules</button>
     </main>
+
+    <main class="result">
+      <div class="result__player">
+        <span class="result__text">You picked</span>
+      </div>
+      <div class="result__house">
+        <span class="result__text">The house picked</span>
+      </div>
+
+      <div class="result__statement">
+        <p>You win</p>
+        <button class="result__replay-button scale">Play again</button>
+      </div>
+    </main>
+
+    <button class="rules-button scale">Rules</button>
 
     <div class="rules">
       <span class="rules__title">Rules</span>
@@ -76,5 +92,5 @@
       />
     </div>
   </body>
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </html>
