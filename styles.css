@@ -251,39 +251,38 @@ button {
   max-width: 100%;
 }
 
-.result {
+.choice {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 22rem 20rem;
 
   min-width: 37.5rem;
-
   text-align: center;
 }
 
-.result__player,
-.result__house {
+.choice__player,
+.choice__house {
   display: flex;
   position: relative;
 }
 
-.result__player {
+.choice__player {
   border: 1px solid cyan;
   grid-column: 1/2;
 }
 
-.result__house {
+.choice__house {
   border: 1px solid pink;
   grid-column: 2/3;
 }
 
-.result__text {
+.choice__text {
   align-self: end;
   font-size: 1.4rem;
   width: 100%;
 }
 
-.result__statement {
+.result {
   border: 2px solid green;
 
   display: flex;
@@ -332,9 +331,9 @@ button {
     width: 30rem;
   }
   .game__chip {
+    top: 2rem;
     height: 20rem;
     width: 20rem;
-    top: 2rem;
   }
 
   /* .game__chip--paper {
@@ -349,6 +348,8 @@ button {
   }
   .game__chip--chosen {
     top: 50%;
+    /* height: 25rem;
+    width: 25rem; */
   }
 
   .rules-button {
@@ -385,22 +386,21 @@ button {
     grid-row: 2;
   }
 
-  .result {
+  .choice {
     grid-template-columns: 3fr 2fr 3fr;
     grid-template-rows: 40rem;
   }
-
-  .result__player {
+  .choice__player {
     grid-column: 1/2;
   }
-  .result__house {
+  .choice__house {
     grid-column: 3/4;
   }
-  .result__text {
+  .choice__text {
     align-self: start;
     font-size: 2.2rem;
   }
-  .result__statement {
+  .result {
     grid-column: 2/3;
     grid-row: 1;
   }
