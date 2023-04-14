@@ -259,6 +259,9 @@ button {
   min-width: 37.5rem;
   text-align: center;
 }
+.choice--hide {
+  display: none;
+}
 
 .choice__player,
 .choice__house {
@@ -335,14 +338,12 @@ button {
     height: 20rem;
     width: 20rem;
   }
-
   /* .game__chip--paper {
     left: 6rem;
   }
   .game__chip--scissors {
     right: 6rem;
   } */
-
   .game__chip--rock {
     top: 25rem;
   }
