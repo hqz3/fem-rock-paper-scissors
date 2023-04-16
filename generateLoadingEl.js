@@ -1,10 +1,11 @@
-export function generateLoadingEl(houseChoiceEl, height, width, loadingTime) {
+export function generateLoadingEl(game, loadingTime) {
   const loadingEl = document.createElement("div");
   loadingEl.classList.add("loading");
   loadingEl.innerHTML = `<span class="loading__percent">0%</span>`;
-  loadingEl.style.height = `${height}px`;
-  loadingEl.style.width = `${width}px`;
-  houseChoiceEl.appendChild(loadingEl);
+  loadingEl.style.height = `${game.playerChoice.offsetHeight}px`;
+  loadingEl.style.width = `${game.playerChoice.offsetWidth}px`;
+
+  game.houseChoiceEl.appendChild(loadingEl);
 
   const interval = loadingTime / 100;
 
@@ -15,7 +16,7 @@ export function generateLoadingEl(houseChoiceEl, height, width, loadingTime) {
     percentEl.textContent = `${percent}%`;
     if (percent === 100) {
       clearInterval(ref);
-      houseChoiceEl.removeChild(loadingEl);
+      game.houseChoiceEl.removeChild(loadingEl);
     }
   }, interval);
 }
