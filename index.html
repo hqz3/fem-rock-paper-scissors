@@ -35,31 +35,28 @@
           src="./images/bg-triangle.svg"
           alt="Game track"
         />
-        <div
-          class="game__chip game__chip--paper pointer scale"
-          data-choice="PAPER"
-        >
+        <div class="game__chip game__chip--paper scale" data-choice="PAPER">
           <img
             src="./images/icon-paper.svg"
-            alt=""
             class="game__icon game__paper-icon"
+            alt="Paper"
           />
         </div>
-        <div class="game__chip game__chip--rock pointer" data-choice="ROCK">
+        <div class="game__chip game__chip--rock" data-choice="ROCK">
           <img
             src="./images/icon-rock.svg"
-            alt=""
             class="game__icon game__rock-icon"
+            alt="Rock"
           />
         </div>
         <div
-          class="game__chip game__chip--scissors pointer scale"
+          class="game__chip game__chip--scissors scale"
           data-choice="SCISSORS"
         >
           <img
             src="./images/icon-scissors.svg"
-            alt=""
             class="game__icon game__scissors-icon"
+            alt="Scissors"
           />
         </div>
       </div>
@@ -73,8 +70,8 @@
         <span class="choice__text">The house picked</span>
       </div>
 
-      <div class="result">
-        <p class="result__text">You lose</p>
+      <div class="result result--hide">
+        <p class="result__text"></p>
         <button class="result__replay-button scale">Play again</button>
       </div>
     </main>
@@ -84,11 +81,7 @@
     <div class="rules">
       <span class="rules__title">Rules</span>
       <img class="rules__image" src="./images/image-rules.svg" alt="" />
-      <img
-        class="rules__close pointer"
-        src="./images/icon-close.svg"
-        alt="Close"
-      />
+      <img class="rules__close" src="./images/icon-close.svg" alt="Close" />
     </div>
   </body>
 </html>
