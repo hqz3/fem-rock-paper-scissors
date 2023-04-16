@@ -304,6 +304,40 @@ button {
   border-radius: 1rem;
 }
 
+.loading {
+  border-radius: 50%;
+  border: 4px solid var(--dark-text);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loading__percent {
+  font-size: 3rem;
+  color: var(--dark-text);
+}
+
+.grow {
+  animation: grow 0.75s;
+}
+
+@keyframes grow {
+  0%,
+  100% {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
 @media (min-width: 769px) {
   body {
     grid-template-rows: 24rem 1fr;
