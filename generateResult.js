@@ -10,12 +10,8 @@ const RESULT = {
   TIE: { text: "You tied", score: 0 },
 };
 
-export function generateResult(game) {
-  const playerChoice = game.playerChoice.dataset.choice;
-  const houseChoice = game.houseChoice.dataset.choice;
-
+export function generateResult(playerChoice, houseChoice) {
   let outcome = null;
-
   if (playerChoice === houseChoice) {
     outcome = RESULT.TIE;
   } else if (
@@ -25,9 +21,6 @@ export function generateResult(game) {
   ) {
     outcome = RESULT.WIN;
   }
-
   if (!outcome) outcome = RESULT.LOSE;
-
-  game.resultText.textContent = outcome.text;
-  game.score += outcome.score;
+  return outcome;
 }
