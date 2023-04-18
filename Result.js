@@ -41,15 +41,18 @@ export class Result {
     this.game.houseChoice = this.game.chips[choice].cloneNode(true);
   }
 
-  showLoader() {
-    const loader = new Loader(
-      this.houseChoiceEl,
-      this.loadingTime,
-      this.game.playerChoice.offsetHeight,
-      this.game.playerChoice.offsetWidth
-    );
-    loader.render();
-  }
+  showLoader = () => {
+    return new Promise((resolve, reject) => {
+      const loader = new Loader(
+        this.houseChoiceEl,
+        this.loadingTime,
+        this.game.playerChoice.offsetHeight,
+        this.game.playerChoice.offsetWidth
+      );
+      loader.render();
+      resolve();
+    });
+  };
 
   showHouseChoice = () => {
     return new Promise((resolve, reject) => {
@@ -61,7 +64,7 @@ export class Result {
     });
   };
 
-  expandChipsAnimation = () => {
+  expandChips = () => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         this.game.playerChoice.classList.add("game__chip--grow-final");
@@ -92,10 +95,10 @@ export class Result {
     this.game.playerChoice.classList.add("game__chip--chosen", "grow");
 
     this.generateHouseChoice();
-    this.showLoader();
 
-    this.showHouseChoice()
-      .then(this.expandChipsAnimation)
+    this.showLoader()
+      .then(this.showHouseChoice)
+      .then(this.expandChips)
       .then(this.showResult);
   }
 }
