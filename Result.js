@@ -22,7 +22,6 @@ export class Result {
 
     this.playerChoiceEl = this.element.querySelector(".choice__player");
     this.houseChoiceEl = this.element.querySelector(".choice__house");
-
     this.winner = null;
 
     this.loadingTime = generateLoadingTime();
@@ -34,6 +33,11 @@ export class Result {
 
     this.resultEl = this.element.querySelector(".result");
     this.resultText = this.element.querySelector(".result__text");
+  }
+
+  showPlayerChoice() {
+    this.playerChoiceEl.appendChild(this.game.playerChoice);
+    this.game.playerChoice.classList.add("game__chip--chosen", "grow");
   }
 
   generateHouseChoice() {
@@ -90,10 +94,7 @@ export class Result {
   };
 
   render() {
-    // Show the player's choice
-    this.playerChoiceEl.appendChild(this.game.playerChoice);
-    this.game.playerChoice.classList.add("game__chip--chosen", "grow");
-
+    this.showPlayerChoice();
     this.generateHouseChoice();
 
     this.showLoader()
