@@ -44,8 +44,8 @@ body {
   grid-template-rows: 16rem 1fr;
   justify-items: center;
 
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
   max-width: var(--desktop-screen);
   margin: 0 auto;
 
@@ -110,10 +110,6 @@ button {
 .game {
   display: flex;
   justify-content: center;
-}
-
-.game--hide {
-  display: none;
 }
 
 .game__container {
@@ -181,6 +177,11 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.game__chip--winner {
+  box-shadow: 0 0 0 40px hsl(217, 16%, 45%, 0.05),
+    0 0 0 80px hsl(217, 16%, 45%, 0.08), 0 0 0 120px hsl(217, 16%, 45%, 0.1);
 }
 
 .game__icon {
@@ -261,10 +262,6 @@ button {
   text-align: center;
 }
 
-.choice--hide {
-  display: none;
-}
-
 .choice__player,
 .choice__house {
   display: flex;
@@ -306,6 +303,10 @@ button {
 .result--hide {
   opacity: 0;
   pointer-events: none;
+}
+
+.result__text {
+  letter-spacing: 0rem;
 }
 
 .result__replay-button {
