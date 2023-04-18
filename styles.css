@@ -182,6 +182,7 @@ button {
 .game__chip--winner {
   box-shadow: 0 0 0 40px hsl(217, 16%, 45%, 0.05),
     0 0 0 80px hsl(217, 16%, 45%, 0.08), 0 0 0 120px hsl(217, 16%, 45%, 0.1);
+  z-index: -10;
 }
 
 .game__icon {
@@ -253,7 +254,7 @@ button {
   max-width: 100%;
 }
 
-.choice {
+.result {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 22rem 20rem;
@@ -262,30 +263,30 @@ button {
   text-align: center;
 }
 
-.choice__player,
-.choice__house {
+.result__player,
+.result__house {
   display: flex;
   position: relative;
 }
 
-.choice__player {
+.result__player {
   border: 1px solid cyan;
   grid-column: 1/2;
 }
 
-.choice__house {
+.result__house {
   border: 1px solid pink;
   grid-column: 2/3;
 }
 
-.choice__text {
+.result__text {
   align-self: end;
   font-size: 1.4rem;
   width: 100%;
 }
 
-.result {
-  border: 2px solid green;
+.outcome {
+  border: 2px solid pink;
 
   display: flex;
   flex-direction: column;
@@ -297,19 +298,16 @@ button {
   gap: 2rem;
   grid-column: 1 / -1;
 
-  transition: opacity 1s;
+  /* min-width: 30rem; */
+  /* flex-grow: 1; */
+  transition: all 1s;
 }
 
-.result--hide {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.result__text {
+.outcome__text {
   letter-spacing: 0rem;
 }
 
-.result__replay-button {
+.outcome__replay-button {
   padding: 1.5rem 5rem;
   border-radius: 1rem;
 }
@@ -436,21 +434,22 @@ button {
     grid-row: 2;
   }
 
-  .choice {
+  .result {
     grid-template-columns: 3fr 2fr 3fr;
     grid-template-rows: 40rem;
   }
-  .choice__player {
+  .result__player {
     grid-column: 1/2;
   }
-  .choice__house {
+  .result__house {
     grid-column: 3/4;
   }
-  .choice__text {
+  .result__text {
     align-self: start;
     font-size: 2.2rem;
   }
-  .result {
+
+  .outcome {
     grid-column: 2/3;
     grid-row: 1;
   }
