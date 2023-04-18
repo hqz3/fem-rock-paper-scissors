@@ -1,3 +1,4 @@
+import createResultElements from "./createResultElements.js";
 import { Loader } from "./Loader.js";
 import { generateLoadingTime } from "./generateLoadingTime.js";
 import { generateResult } from "./generateResult.js";
@@ -5,34 +6,11 @@ import { generateResult } from "./generateResult.js";
 export class Result {
   constructor(game) {
     this.game = game;
-    this.element = document.createElement("main");
-    this.element.classList.add("choice");
-    this.element.innerHTML = `
-  <div class="choice__player">
-    <span class="choice__text">You picked</span>
-  </div>
-  <div class="choice__house">
-    <span class="choice__text">The house picked</span>
-  </div>
-  <div class="result result--hide">
-    <p class="result__text"></p>
-    <button class="result__replay-button scale">Play again</button>
-  </div>
-    `;
-
-    this.playerChoiceEl = this.element.querySelector(".choice__player");
-    this.houseChoiceEl = this.element.querySelector(".choice__house");
+    this.element = createResultElements.choices();
+    this.playerChoiceEl = this.element.querySelector(".result__player");
+    this.houseChoiceEl = this.element.querySelector(".result__house");
     this.winner = null;
-
     this.loadingTime = generateLoadingTime();
-
-    this.replayButton = this.element.querySelector(".result__replay-button");
-    this.replayButton.addEventListener("click", () =>
-      this.game.showGameBoard()
-    );
-
-    this.resultEl = this.element.querySelector(".result");
-    this.resultText = this.element.querySelector(".result__text");
   }
 
   showPlayerChoice() {
@@ -64,7 +42,7 @@ export class Result {
         this.houseChoiceEl.appendChild(this.game.houseChoice);
         this.game.houseChoice.classList.add("game__chip--chosen", "grow");
         resolve();
-      }, this.loadingTime);
+      }, 0);
     });
   };
 
@@ -89,8 +67,9 @@ export class Result {
     this.winner?.classList.add("game__chip--winner");
 
     this.game.updateScore(score);
-    this.resultText.textContent = text;
-    this.resultEl.classList.remove("result--hide");
+
+    const result = createResultElements.outcome.call(this, text);
+    this.element.appendChild(result);
   };
 
   render() {
