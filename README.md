@@ -20,18 +20,14 @@ Users should be able to:
 
 - View the optimal layout for the game depending on their device's screen size
 - Play Rock, Paper, Scissors against the computer
-- Maintain the state of the score after refreshing the browser _(optional)_
-- **Bonus**: Play Rock, Paper, Scissors, Lizard, Spock against the computer _(optional)_
 
 ### Screenshot
 
 #### Mobile
-
-![](./screenshot.jpg)
+![rpb-mobile](https://user-images.githubusercontent.com/68667158/233488225-c7075f3e-fc9a-4ef1-a7de-cb68d924498a.png)
 
 #### Desktop
-
-![](./screenshot.jpg)
+![rps-desktop](https://user-images.githubusercontent.com/68667158/233488289-62368b92-7173-409f-9a28-229421c68be6.png)
 
 ### Links
 
