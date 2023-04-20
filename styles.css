@@ -396,15 +396,16 @@ button {
     width: 60rem;
   }
   .game__track {
+    top: 45%;
     width: 30rem;
   }
   .game__chip {
-    top: 2rem;
+    top: 0rem;
     height: 20rem;
     width: 20rem;
   }
   .game__chip--rock {
-    top: 25rem;
+    top: 22.5rem;
   }
   .game__chip--chosen {
     top: 50%;
