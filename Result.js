@@ -48,7 +48,7 @@ export class Result {
           "game__chip--grow"
         );
         resolve();
-      }, 0);
+      }, this.loadingTime);
     });
   };
 
