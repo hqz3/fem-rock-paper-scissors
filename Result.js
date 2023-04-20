@@ -15,7 +15,10 @@ export class Result {
 
   showPlayerChoice() {
     this.playerChoiceEl.appendChild(this.game.playerChoice);
-    this.game.playerChoice.classList.add("game__chip--chosen", "grow");
+    this.game.playerChoice.classList.add(
+      "game__chip--chosen",
+      "game__chip--grow"
+    );
   }
 
   generateHouseChoice() {
@@ -40,7 +43,10 @@ export class Result {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         this.houseChoiceEl.appendChild(this.game.houseChoice);
-        this.game.houseChoice.classList.add("game__chip--chosen", "grow");
+        this.game.houseChoice.classList.add(
+          "game__chip--chosen",
+          "game__chip--grow"
+        );
         resolve();
       }, 0);
     });
@@ -70,6 +76,7 @@ export class Result {
 
     const result = createResultElements.outcome.call(this, text);
     this.element.appendChild(result);
+    this.element.classList.add("result--outcome-expand");
   };
 
   render() {
