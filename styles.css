@@ -41,14 +41,12 @@ body {
 
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 16rem 1fr;
+  grid-template-rows: 16rem minmax(41rem, 1fr) 7rem;
   justify-items: center;
 
-  min-height: 100vh;
-  min-width: 100vw;
-  max-width: var(--desktop-screen);
   margin: 0 auto;
-
+  min-height: 100vh;
+  max-width: var(--desktop-screen);
   position: relative;
   text-transform: uppercase;
 }
@@ -192,13 +190,9 @@ button {
 
 .rules-button {
   background-color: transparent;
-  border-radius: 0.7rem;
+  border-radius: 1rem;
   border: 1px solid var(--header-outline);
   color: #ddd;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   height: 4rem;
   width: 13rem;
@@ -270,12 +264,10 @@ button {
 }
 
 .result__player {
-  border: 1px solid cyan;
   grid-column: 1/2;
 }
 
 .result__house {
-  border: 1px solid pink;
   grid-column: 2/3;
 }
 
@@ -286,7 +278,7 @@ button {
 }
 
 .outcome {
-  animation: showOutcome 0.75s forwards;
+  animation: showOutcome 0.8s forwards;
 
   display: flex;
   flex-direction: column;
@@ -356,7 +348,8 @@ button {
 
 @media (min-width: 769px) {
   body {
-    grid-template-rows: 24rem 1fr;
+    grid-template-rows: 24rem 1fr 1rem;
+    row-gap: 3rem;
   }
 
   .header {
@@ -388,12 +381,6 @@ button {
     height: 20rem;
     width: 20rem;
   }
-  /* .game__chip--paper {
-    left: 6rem;
-  }
-  .game__chip--scissors {
-    right: 6rem;
-  } */
   .game__chip--rock {
     top: 25rem;
   }
@@ -401,16 +388,17 @@ button {
     top: 50%;
   }
   .game__chip--grow-final {
-    height: 27.5rem;
-    width: 27.5rem;
+    height: 29rem;
+    width: 29rem;
+
     transition-property: height, width;
     transition-duration: 0.5s;
-    transition-timing-function: ease-out;
+    transition-timing-function: ease-in-out;
   }
 
   .rules-button {
-    top: 70rem;
-    margin-left: 85%;
+    top: 69.6rem;
+    margin-left: 86%;
   }
 
   .rules {
@@ -443,17 +431,13 @@ button {
   }
 
   .result {
-    border: 2px solid orange;
     grid-template-columns: 3fr 0fr 3fr;
-    grid-template-rows: 40rem;
+    grid-template-rows: 46rem;
 
     width: 100%;
     max-width: 102.4rem;
 
     transition: grid-template-columns 0.75s;
-  }
-  .result__player {
-    /* grid-column: 1/2; */
   }
   .result__house {
     grid-column: 3/4;
@@ -462,7 +446,6 @@ button {
     align-self: start;
     font-size: 2.2rem;
   }
-
   .result--outcome-expand {
     grid-template-columns: 3fr 2fr 3fr;
   }
