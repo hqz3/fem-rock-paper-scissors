@@ -24,10 +24,12 @@ Users should be able to:
 ### Screenshot
 
 #### Mobile
-![rpb-mobile](https://user-images.githubusercontent.com/68667158/233488225-c7075f3e-fc9a-4ef1-a7de-cb68d924498a.png)
+![hqz3 github io_fem-rock-paper-scissors_(iPhone SE)](https://user-images.githubusercontent.com/68667158/235543027-0465a7dc-551b-4d43-9f77-60c534707867.png)
+
 
 #### Desktop
-![rps-desktop](https://user-images.githubusercontent.com/68667158/233488289-62368b92-7173-409f-9a28-229421c68be6.png)
+![hqz3 github io_fem-rock-paper-scissors_(Nest Hub Max)](https://user-images.githubusercontent.com/68667158/235543042-8bec049b-da0a-4efb-81c2-067bbde2e6aa.png)
+
 
 ### Links
 
